@@ -3,55 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Sample Website</title>
+    <title>Calorie & Macro Tracker</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo">MySite</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- Header -->
+    <header>
+        <h1>🥗 My Macro Tracker</h1>
+        <p id="current-date"></p>
+    </header>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <h1>Welcome to My Website</h1>
-        <p>This is a sample site I built from scratch!</p>
-        <button onclick="showMessage()">Click Me!</button>
+    <!-- Daily Goals Section -->
+    <section class="goals-section">
+        <h2>🎯 Daily Goals</h2>
+        <div class="goals-inputs">
+            <div class="goal-input">
+                <label>Calories</label>
+                <input type="number" id="goal-calories" placeholder="e.g. 2000">
+            </div>
+            <div class="goal-input">
+                <label>Protein (g)</label>
+                <input type="number" id="goal-protein" placeholder="e.g. 150">
+            </div>
+            <div class="goal-input">
+                <label>Carbs (g)</label>
+                <input type="number" id="goal-carbs" placeholder="e.g. 200">
+            </div>
+            <div class="goal-input">
+                <label>Fat (g)</label>
+                <input type="number" id="goal-fat" placeholder="e.g. 65">
+            </div>
+        </div>
+        <button onclick="saveGoals()">Save Goals</button>
+        <p id="goals-saved-msg"></p>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About</h2>
-        <p>This website was built using HTML, CSS, and JavaScript.</p>
+    <!-- Progress Section -->
+    <section class="progress-section">
+        <h2>📊 Today's Progress</h2>
+        <div class="progress-cards">
 
-        <div class="cards">
-            <div class="card">🎨 HTML</div>
-            <div class="card">💅 CSS</div>
-            <div class="card">⚡ JavaScript</div>
+            <div class="progress-card">
+                <h3>🔥 Calories</h3>
+                <p><span id="total-calories">0</span> / <span id="display-goal-calories">0</span></p>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar" id="bar-calories"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <h3>💪 Protein</h3>
+                <p><span id="total-protein">0</span>g / <span id="display-goal-protein">0</span>g</p>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar protein-bar" id="bar-protein"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <h3>🍞 Carbs</h3>
+                <p><span id="total-carbs">0</span>g / <span id="display-goal-carbs">0</span>g</p>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar carbs-bar" id="bar-carbs"></div>
+                </div>
+            </div>
+
+            <div class="progress-card">
+                <h3>🥑 Fat</h3>
+                <p><span id="total-fat">0</span>g / <span id="display-goal-fat">0</span>g</p>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar fat-bar" id="bar-fat"></div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <form onsubmit="submitForm(event)">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <p id="form-response"></p>
+    <!-- Add Food Section -->
+    <section class="add-food-section">
+        <h2>➕ Add Food</h2>
+        <div class="food-form">
+            <input type="text" id="food-name" placeholder="Food name (e.g. Chicken Breast)">
+            <input type="number" id="food-calories" placeholder="Calories">
+            <input type="number" id="food-protein" placeholder="Protein (g)">
+            <input type="number" id="food-carbs" placeholder="Carbs (g)">
+            <input type="number" id="food-fat" placeholder="Fat (g)">
+            <button onclick="addFood()">Add Food</button>
+        </div>
+        <p id="food-error" class="error-msg"></p>
+    </section>
+
+    <!-- Food Log Section -->
+    <section class="log-section">
+        <h2>📋 Today's Food Log</h2>
+        <div id="food-list">
+            <p id="empty-msg">No foods added yet. Add your first meal! 🍽️</p>
+        </div>
+        <button class="reset-btn" onclick="resetDay()">🔄 Reset Day</button>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>Made by Me | 2024</p>
+        <p>My Personal Macro Tracker 💪</p>
     </footer>
 
     <script src="script.js"></script>
