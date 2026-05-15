@@ -7,78 +7,60 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
     color: #333;
+    scroll-behavior: smooth;
 }
 
-/* Header */
-header {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a2e;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
     color: white;
-    text-align: center;
-    padding: 30px 20px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-header h1 {
-    font-size: 36px;
-    margin-bottom: 5px;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
 
-header p {
-    color: #aaa;
+nav ul a {
+    color: white;
+    text-decoration: none;
     font-size: 16px;
 }
 
-/* Sections */
-section {
-    max-width: 900px;
-    margin: 30px auto;
-    background: white;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+nav ul a:hover {
+    color: #e94560;
 }
 
-section h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: #1a1a2e;
+/* Hero Section */
+.hero {
+    background-color: #16213e;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
 }
 
-/* Goals Section */
-.goals-inputs {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+.hero h1 {
+    font-size: 48px;
     margin-bottom: 15px;
 }
 
-.goal-input {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    flex: 1;
-    min-width: 150px;
-}
-
-.goal-input label {
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
-}
-
-input[type="number"],
-input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 15px;
-    width: 100%;
-}
-
-input:focus {
-    outline: none;
-    border-color: #e94560;
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #aaa;
 }
 
 /* Buttons */
@@ -86,170 +68,99 @@ button {
     background-color: #e94560;
     color: white;
     border: none;
-    padding: 12px 25px;
-    font-size: 15px;
-    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background 0.3s;
 }
 
 button:hover {
     background-color: #c73652;
 }
 
-#goals-saved-msg {
-    margin-top: 10px;
+/* About Section */
+.about {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #f4f4f4;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.about p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    font-size: 22px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+#form-response {
+    margin-top: 15px;
+    font-size: 18px;
     color: green;
     font-weight: bold;
 }
 
-/* Progress Cards */
-.progress-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-
-.progress-card {
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-}
-
-.progress-card h3 {
-    font-size: 16px;
-    margin-bottom: 8px;
-}
-
-.progress-card p {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #1a1a2e;
-}
-
-/* Progress Bars */
-.progress-bar-bg {
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    height: 12px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    height: 12px;
-    border-radius: 10px;
-    background-color: #e94560;
-    width: 0%;
-    transition: width 0.5s ease;
-}
-
-.protein-bar {
-    background-color: #4CAF50;
-}
-
-.carbs-bar {
-    background-color: #FF9800;
-}
-
-.fat-bar {
-    background-color: #2196F3;
-}
-
-/* Add Food Section */
-.food-form {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
-.error-msg {
-    color: red;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Food Log */
-#food-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-#empty-msg {
-    color: #aaa;
-    text-align: center;
-    padding: 20px;
-}
-
-.food-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f9f9f9;
-    border-radius: 10px;
-    padding: 12px 15px;
-    border-left: 4px solid #e94560;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.food-item-name {
-    font-weight: bold;
-    font-size: 16px;
-    flex: 1;
-}
-
-.food-item-macros {
-    display: flex;
-    gap: 15px;
-    font-size: 14px;
-    color: #555;
-    flex-wrap: wrap;
-}
-
-.food-item-macros span {
-    background: #eee;
-    padding: 3px 8px;
-    border-radius: 5px;
-}
-
-.delete-btn {
-    background: none;
-    border: none;
-    color: #e94560;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 0;
-}
-
-.delete-btn:hover {
-    background: none;
-    color: #c73652;
-}
-
-/* Reset Button */
-.reset-btn {
-    background-color: #555;
-    width: 100%;
-}
-
-.reset-btn:hover {
-    background-color: #333;
-}
-
-/* Over goal warning */
-.over-goal {
-    color: #e94560 !important;
-}
-
 /* Footer */
 footer {
+    background-color: #1a1a2e;
+    color: white;
     text-align: center;
     padding: 20px;
-    color: #aaa;
-    font-size: 14px;
 }
